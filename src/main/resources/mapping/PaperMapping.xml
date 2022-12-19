@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.PaperMapper">
+
+    <select id="Get_paper" parameterType="int" resultType="String">
+        select answer
+        from paper
+        where pid = #{pid};
+    </select>
+
+    <insert id="Create_new_paper" parameterType="com.example.entity.Paper">
+        INSERT INTO paper
+        VALUES (#{pid}, #{ans});
+    </insert>
+
+    <update id="Create_paper_table" parameterType="String">
+        CREATE TABLE ${pname}
+        (
+            sid   INT,
+            score INT
+        );
+    </update>
+
+    <insert id="Set_score" parameterType="com.example.entity.Student">
+        INSERT INTO ${table_name}
+        VALUES (#{sid}, #{score});
+    </insert>
+
+</mapper>
