@@ -9,15 +9,21 @@
     </select>
 
     <insert id="Create_new_paper" parameterType="com.example.entity.Paper">
-        INSERT INTO paper
-        VALUES (#{pid}, #{ans});
+        replace
+        INTO paper
+        VALUES (
+        #{pid},
+        #{ans}
+        );
     </insert>
 
     <update id="Create_paper_table" parameterType="String">
-        CREATE TABLE ${pname}
+        CREATE TABLE IF NOT EXISTS ${pname}
         (
-            sid   INT,
-            score INT
+            sid
+            INT,
+            score
+            INT
         );
     </update>
 

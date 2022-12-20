@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
@@ -18,28 +19,32 @@ public class PaperController {
     @Autowired
     private PaperService paperService;
 
-    @RequestMapping(value = "/springBoot/paper/{answer}")
+    @RequestMapping(value = "/springBoot/paper")
     public @ResponseBody
-    Object paper(@PathVariable("answer") String ans) {
+    int paper(HttpServletRequest request) {
 
-        paperService.Create_new_paper(count++, ans);
+        paperService.Create_new_paper(count, request.getParameter("answer"));
 
-        return count;
+        return count++;
     }
 
-    @RequestMapping(value = "/springBoot/exam/{pid}")
+    @RequestMapping(value = "/springBoot/exam")
     public @ResponseBody
-    Object exam(@PathVariable("pid") int pid) {
+    int exam(HttpServletRequest request) {
 
-        String ans = paperService.Get_paper(pid);
-
+        String ans = paperService.Get_paper(Integer.parseInt(request.getParameter("pid")));
+        System.out.println(ans);
         return ans.length();
     }
 
-    @RequestMapping(value = "/springBoot/handin/{pid}/{sid}/{name}/{ans}")
+    @RequestMapping(value = "/springBoot/handin")
     public @ResponseBody
-    Object handin(@PathVariable("pid") int pid, @PathVariable("sid") int sid, @PathVariable("name") String name, @PathVariable("ans") String ans) {
+    int handin(HttpServletRequest request) {
         count = 0;
+        int pid = Integer.parseInt(request.getParameter("pid"));
+        int sid = Integer.parseInt(request.getParameter("sid"));
+        String name = request.getParameter("name");
+        String ans = request.getParameter("ans");
         String right_ans = paperService.Get_paper(pid);
         for (int i = 0; i < right_ans.length(); i++) {
             System.out.println("right_ans:" + right_ans.charAt(i));
