@@ -23,7 +23,11 @@ public class PaperController {
     public @ResponseBody
     int paper(HttpServletRequest request) {
 
-        paperService.Create_new_paper(count, request.getParameter("answer"));
+        paperService.Create_new_paper(
+                count,
+                request.getParameter("answer"),
+                request.getParameter("paper_title"),
+                Integer.parseInt(request.getParameter("individual_score")));
 
         return count++;
     }

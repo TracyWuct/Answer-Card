@@ -3,7 +3,7 @@ package com.example.service;
 import com.example.entity.Paper;
 
 public interface PaperService {
-    void Create_new_paper(int pid, String ans);
+    void Create_new_paper(int pid, String ans, String paper_title, int individual_score);
 
     String Get_paper(int pid);
 

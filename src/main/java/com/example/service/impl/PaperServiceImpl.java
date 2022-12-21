@@ -15,8 +15,8 @@ public class PaperServiceImpl implements PaperService {
     private PaperMapper paperMapper;
 
     @Override
-    public void Create_new_paper(int pid, String ans) {
-        paperMapper.Create_new_paper(pid, ans);
+    public void Create_new_paper(int pid, String ans, String paper_title, int individual_score) {
+        paperMapper.Create_new_paper(pid, ans, paper_title, individual_score);
         paperMapper.Create_paper_table("paper_" + String.valueOf(pid));
     }
 

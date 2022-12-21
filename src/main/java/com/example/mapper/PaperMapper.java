@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface PaperMapper {
-    void Create_new_paper(int pid, String ans);
+    void Create_new_paper(int pid, String ans, String paper_title, int individual_score);
 
     void Create_paper_table(@Param("pname") String pname);
 

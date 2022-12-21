@@ -13,7 +13,9 @@
         INTO paper
         VALUES (
         #{pid},
-        #{ans}
+        #{ans},
+        #{paper_title},
+        #{individual_score}
         );
     </insert>
 
