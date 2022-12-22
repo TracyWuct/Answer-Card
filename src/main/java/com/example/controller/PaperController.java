@@ -36,7 +36,7 @@ public class PaperController {
     public @ResponseBody
     int exam(HttpServletRequest request) {
 
-        String ans = paperService.Get_paper(Integer.parseInt(request.getParameter("pid")));
+        String ans = paperService.Get_paper(Integer.parseInt(request.getParameter("pid"))).getAnswer();
         System.out.println(ans);
         return ans.length();
     }
@@ -49,7 +49,7 @@ public class PaperController {
         int sid = Integer.parseInt(request.getParameter("sid"));
         String name = request.getParameter("name");
         String ans = request.getParameter("ans");
-        String right_ans = paperService.Get_paper(pid);
+        String right_ans = paperService.Get_paper(pid).getAnswer();
         for (int i = 0; i < right_ans.length(); i++) {
             System.out.println("right_ans:" + right_ans.charAt(i));
             System.out.println("ans:" + ans.charAt(i));
@@ -57,7 +57,7 @@ public class PaperController {
                 count++;
             }
         }
-        paperService.Set_score("paper_" + pid, sid, name, count);
+        paperService.Set_score("paper_" + pid, name, count);
         return count;
     }
 

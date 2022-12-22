@@ -2,20 +2,20 @@ package com.example.entity;
 
 public class Paper {
     private Integer pid;
-    private String ans;
-    private String papaer_title;
+    private String answer;
+    private String paper_title;
     private Integer individual_score;
 
     public void setPid(Integer pid) {
         this.pid = pid;
     }
 
-    public void setAns(String ans) {
-        this.ans = ans;
+    public void setAns(String answer) {
+        this.answer = answer;
     }
 
-    public void setPapaer_title(String papaer_title) {
-        this.papaer_title = papaer_title;
+    public void setPaper_title(String paper_title) {
+        this.paper_title = paper_title;
     }
 
     public void setIndividual_score(Integer individual_score) {
@@ -26,12 +26,12 @@ public class Paper {
         return pid;
     }
 
-    public String getAns() {
-        return ans;
+    public String getAnswer() {
+        return answer;
     }
 
-    public String getPapaer_title() {
-        return papaer_title;
+    public String getPaper_title() {
+        return paper_title;
     }
 
     public Integer getIndividual_score() {
@@ -42,7 +42,9 @@ public class Paper {
     public String toString() {
         return "Paper{" +
                 "Pid=" + pid +
-                ", Answer='" + ans + '\'' +
+                ", Answer='" + answer + '\'' +
+                ", title='" + paper_title + '\'' +
+                ", score='" + individual_score + '\'' +
                 '}';
     }
 }

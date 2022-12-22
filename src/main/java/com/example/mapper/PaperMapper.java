@@ -14,10 +14,10 @@ public interface PaperMapper {
 
     void Create_paper_table(@Param("pname") String pname);
 
-    String Get_paper(int pid);
+    Paper Get_paper(int pid);
 
     void Set_score(@Param("table_name") String table_name,
-                   @Param("sid") int sid,
                    @Param("name") String name,
                    @Param("score") int score);
+
 }

@@ -21,13 +21,20 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-    public String Get_paper(int pid) {
+    public Paper Get_paper(int pid) {
+
+        System.out.println(paperMapper.Get_paper(pid));
         return paperMapper.Get_paper(pid);
     }
 
     @Override
-    public void Set_score(String table_name, int sid, String name, int score) {
-        paperMapper.Set_score(table_name, sid, name, score);
+    public void Set_score(String table_name, String name, int score) {
+        paperMapper.Set_score(table_name, name, score);
+    }
+
+    @Override
+    public void Submit_card(String name, int score) {
+        //paperMapper.Submit_card(name,score);
     }
 
 }
